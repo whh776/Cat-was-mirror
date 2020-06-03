@@ -3,15 +3,21 @@ import vueRouter from 'vue-router';
 
 // 引入路由跳转部分
 // 模型管理
-import modelManage from '../components/content/projectManage/modelManage'
+import Layout from '../components/layout'
+import modelManage from 'ProjectManage/modelManage'
 // 用户标签
-import userLog from '../components/content/projectManage/userAnalyze/userLog.vue'
+import userLog from 'ProjectManage/userAnalyze/userLog'
 // 用户分群
-import userGroup from '../components/content/projectManage/userAnalyze/userGroup.vue'
-import numberManage from '../components/content/projectManage/numberManage'
-import numberRecord from '../components/content/projectManage/markManage/numberRecord.vue'
-import peopleManage from '../components/content/projectManage/markManage/peopleManage.vue'
-import peopleStatement from '../components/content/projectManage/markManage/peopleStatement.vue'
+import userGroup from 'ProjectManage/userAnalyze/userGroup'
+import numberManage from 'ProjectManage/numberManage'
+import numberRecord from 'ProjectManage/markManage/numberRecord'
+import peopleManage from 'ProjectManage/markManage/peopleManage'
+import peopleStatement from 'ProjectManage/markManage/peopleStatement'
+
+
+
+// 登入注册
+import Login from 'Page/login'
 Vue.use(vueRouter);
 
 
@@ -19,34 +25,72 @@ Vue.use(vueRouter);
 let router = new vueRouter({
     mode: 'history',
     routes: [
+        // 重定向 登入页
         {
-            path: '/modelManage',
-            component: modelManage
+            path: '/',
+            name: '重定向登入页',
+            redirect: '/login',
         },
         {
-            path: '/userLog',
-            component: userLog
+            path: '/login',
+            name: '登入页',
+            component: Login
         },
         {
-            path: '/userGroup',
-            component: userGroup
+            path: '/index',
+            name: '登入页',
+            component: Layout,
+            // redirect:'/wel/login',
+            children: [
+                {
+                    path: 'index',
+                    name: '首页',
+                    component: Layout
+                },
+                {
+                    path: '/index/modelManage',
+                    name: '模型管理',
+                    component: modelManage
+                },
+                {
+                    path: '/index/userLog',
+                    name: '用户标签',
+                    component: userLog
+                },
+                {
+                    path: '/index/userGroup',
+                    name: '用户组',
+                    component: userGroup
+                },
+                {
+                    path: '/index/numberManage',
+                    name: '数字管理',
+                    component: numberManage
+                },
+                {
+                    path: '/index/numberRecord',
+                    name: '号码卡包',
+                    component: numberRecord
+                },
+                {
+                    path: '/index/peopleManage',
+                    name: '人群管理',
+                    component: peopleManage
+                },
+                {
+                    path: '/index/peopleStatement',
+                    component: peopleStatement
+                },
+                {
+                    path: '/index/peopleStatement',
+                    component: peopleStatement
+                },
+
+            ]
         },
-        {
-            path: '/numberManage',
-            component: numberManage
-        },
-        {
-            path: '/numberRecord',
-            component: numberRecord
-        },
-        {
-            path: '/peopleManage',
-            component: peopleManage
-        },
-        {
-            path: '/peopleStatement',
-            component: peopleStatement
-        },
+
+
+
     ]
 })
 

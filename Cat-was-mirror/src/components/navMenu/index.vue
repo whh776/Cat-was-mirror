@@ -11,7 +11,7 @@
             <el-menu-item-group>
               <!-- <template slot="title">模型管理</template> -->
               <el-menu-item index="1-1">
-                <router-link to="/modelManage" tag="div">模型管理</router-link>
+                <router-link to="/index/modelManage" tag="div">模型管理</router-link>
               </el-menu-item>
               <!-- 用户分析 -->
               <el-submenu index="1-2">
@@ -19,32 +19,32 @@
 
                 <el-menu-item index="1-2-1">
                   <!-- 路由用户标签跳转 -->
-                  <router-link to="/userLog" tag="div">
+                  <router-link to="/index/userLog" tag="div">
                   用户标签
                   </router-link>
                 </el-menu-item>
                 <el-menu-item index="1-2-2">
-                  <router-link to="/userGroup" tag="div">用户分群</router-link>
+                  <router-link to="/index/userGroup" tag="div">用户分群</router-link>
                 </el-menu-item>
               </el-submenu>
               <!-- 取数管理 -->
               <el-submenu index="1-3">
                 <template slot="title">取数管理</template>
                 <el-menu-item index="1-3-1">
-                  <router-link to="/numberManage" tag="div">源数据统计</router-link>
+                  <router-link to="/index/numberManage" tag="div">源数据统计</router-link>
                 </el-menu-item>
               </el-submenu>
               <!-- 取号管理 -->
               <el-submenu index="1-4">
                 <template slot="title">取号管理</template>
                 <el-menu-item index="1-4-1">
-                  <router-link to="/numberRecord" tag="div">人群包管理</router-link>
+                  <router-link to="/index/numberRecord" tag="div">人群包管理</router-link>
                 </el-menu-item>
                 <el-menu-item index="1-4-1">
-                  <router-link to="/peopleManage" tag="div">人群包报表</router-link>
+                  <router-link to="/index/peopleManage" tag="div">人群包报表</router-link>
                 </el-menu-item>
                 <el-menu-item index="1-4-1">
-                  <router-link to="/peopleStatement" tag="div">取号记录</router-link>
+                  <router-link to="/index/peopleStatement" tag="div">取号记录</router-link>
                 </el-menu-item>
               </el-submenu>
               <!-- 一组 -->
@@ -130,5 +130,9 @@ export default {
 <style lang="less" scoped>
 el-submenu{
   width: 150px;
+}
+.el-col-12 {
+    width: 100%;
+    height: 100%;
 }
 </style>
